@@ -1,0 +1,9 @@
+{
+  "network": {
+    "socket": {
+      "protocol": "wss",
+      "host": "api-pub.bitfinex.com",
+      "path": "/ws/2"
+    }
+  }
+}

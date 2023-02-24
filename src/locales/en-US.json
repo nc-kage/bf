@@ -1,0 +1,14 @@
+{
+  "symbol": {
+    "tBTCUSD": "BTC/USD",
+    "tETHUSD": "ETH/USD"
+  },
+  "App": {
+    "orderBook": "Order book "
+  },
+  "Orders": {
+    "count": "Count",
+    "amount": "Amount",
+    "price": "Price"
+  }
+}

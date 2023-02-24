@@ -1,0 +1,25 @@
+.Orders {
+  font-size: 11px;
+  height: 432px;
+}
+
+.Orders__header {
+  width: 100%;
+  display: flex;
+}
+
+.Orders__header__item {
+  flex: 1;
+  padding: 2px 4px;
+  text-transform: uppercase;
+  opacity: 0.6;
+  text-align: center;
+}
+
+.Orders__header--left .Orders__header__item:last-of-type {
+  text-align: right;
+}
+
+.Orders__header--right .Orders__header__item:first-of-type {
+  text-align: left;
+}
