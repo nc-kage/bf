@@ -1,6 +1,6 @@
 import { createSlice, EntityState, PayloadAction, createEntityAdapter } from '@reduxjs/toolkit';
 
-import { JsonType, MessageEvent, OrderProposition, OrdersType, OrderSymbol, OrderType } from '@/types';
+import { JsonType, MessageEvent, OrderProposition, OrdersType, OrderSymbol } from '@/types';
 import * as socket from '@/slices/socket';
 
 export type OrderStateType = {
@@ -52,7 +52,9 @@ export const { actions, reducer } = createSlice({
       const isInitial = typeof (payload as OrdersType)[1][0] !== 'number';
       const orders = (isInitial
         ? payload[1] as [number, number, number][]
-        : [payload[1] as [number, number, number]]).map(([priceAbs, count, amount]) => {
+        : [payload[1] as [number, number, number]]).filter((item) => {
+        return Array.isArray(item) && item.length === 3;
+      }).map(([priceAbs, count, amount]) => {
         const price = amount > 0 ? priceAbs : -priceAbs;
         return { price, count, amount };
       });

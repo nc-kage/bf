@@ -1,9 +1,11 @@
 {
   "network": {
+    "reconnectDelay": 1000,
+    "connectTimeout": 1000,
     "socket": {
       "protocol": "wss",
       "host": "api-pub.bitfinex.com",
-      "path": "/ws/2"
+      "path": "ws/2"
     }
   }
 }

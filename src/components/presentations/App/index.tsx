@@ -21,9 +21,9 @@ const App: FC<PropsType> = ({
   }, [onSelectSymbol]);
   return (
     <>
-      <select onChange={selectHandler} value={selectedSymbol}>
+      <select data-testid="select-symbol" onChange={selectHandler} value={selectedSymbol}>
         {symbols.map((symbol) => (
-          <option key={symbol} value={symbol}>
+          <option data-testid={`select-symbol-${symbol}`} key={symbol} value={symbol}>
             {t(`symbol.${symbol}`)}
           </option>
         ))}

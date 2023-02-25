@@ -10,12 +10,14 @@ export const getSymbol = (state: RootState): OrdersState['symbol'] => state.orde
 
 export const getChanId = (state: RootState): OrdersState['chanId'] => state.orders.chanId;
 
-export const checkEmpty = (state: RootState): boolean => selectIds(state).length === 0;
+export const checkEmpty = (state: RootState): boolean => selectIds(state.orders).length === 0;
 
 const getBidPrices = createSelector<[typeof selectIds], OrderStateType['price'][]>(
   [selectIds],
   (prices) => {
-    return prices.filter((price): boolean => price > 0) as OrderStateType['price'][];
+    return prices
+      .filter((price): boolean => price > 0)
+      .map((price) => Number(price)) as OrderStateType['price'][];
   },
 );
 
