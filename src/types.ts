@@ -25,3 +25,9 @@ export enum MessageEvent {
 export enum Channel {
   BOOK = 'book',
 }
+
+export enum Exception {
+  CONNECTION_CLOSED = 'Connection closed',
+  INVALID_JSON = 'Invalid JSON',
+  TIMEOUT = 'Timeout',
+}

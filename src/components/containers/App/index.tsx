@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useEffect } from 'react';
+import React, { ReactElement, useCallback, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import View from '@/components/presentations/App';
@@ -11,12 +11,13 @@ const symbols = Object.values(OrderSymbol);
 
 const App = (): ReactElement => {
   const selectedSymbol = useSelector(ordersSelectors.getSymbol);
+  const initialSymbol = useRef(selectedSymbol);
   const isReady = useSelector(socketSelectors.checkReady);
   const dispatch = useDispatch();
 
   useEffect(() => {
     if (isReady) {
-      dispatch(orders.actions.setSymbol(OrderSymbol.BTCUSD));
+      dispatch(orders.actions.setSymbol(initialSymbol.current));
     }
   }, [dispatch, isReady]);
 

@@ -30,6 +30,7 @@ export const { actions, reducer } = createSlice({
       state.lastOutgoingMessage = action.payload;
     },
     setError: (state, action: PayloadAction<string>): void => {
+      debugger;
       state.error = action.payload;
     },
   },

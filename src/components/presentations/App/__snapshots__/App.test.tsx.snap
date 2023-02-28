@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot 1`] = `
+<DocumentFragment>
+  <select
+    data-testid="select-symbol"
+  >
+    <option
+      data-testid="select-symbol-tBTCUSD"
+      value="tBTCUSD"
+    >
+      BTC/USD
+    </option>
+    <option
+      data-testid="select-symbol-tETHUSD"
+      value="tETHUSD"
+    >
+      ETH/USD
+    </option>
+  </select>
+  <div
+    class="App"
+  >
+    <div
+      class="App__header"
+    >
+      <div>
+        Order book 
+        <span
+          class="App__header__symbol"
+        >
+          BTC/USD
+        </span>
+      </div>
+    </div>
+    <div
+      class="App__charts"
+    />
+  </div>
+</DocumentFragment>
+`;

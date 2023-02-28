@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App snapshot left 1`] = `
+<DocumentFragment>
+  <div
+    class="Orders"
+  >
+    <div
+      class="Orders__header Orders__header--left"
+    >
+      <span
+        class="Orders__header__item"
+      >
+        Count
+      </span>
+      <span
+        class="Orders__header__item"
+      >
+        Amount
+      </span>
+      <span
+        class="Orders__header__item"
+      >
+        Price
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`App snapshot right 1`] = `
+<DocumentFragment>
+  <div
+    class="Orders"
+  >
+    <div
+      class="Orders__header Orders__header--right"
+    >
+      <span
+        class="Orders__header__item"
+      >
+        Price
+      </span>
+      <span
+        class="Orders__header__item"
+      >
+        Amount
+      </span>
+      <span
+        class="Orders__header__item"
+      >
+        Count
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;
