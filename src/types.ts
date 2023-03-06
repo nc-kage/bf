@@ -2,7 +2,7 @@ export type OrderType = [number, [number, number, number]];
 export type OrdersType = [number, [number, number, number][]];
 
 export type JsonType<P = null | string | number | boolean> = {
-  [key: string]: P | JsonType<P> | JsonType<P>[];
+  [key: string]: P | P[] | JsonType<P> | JsonType<P>[];
 };
 
 export enum OrderSymbol {

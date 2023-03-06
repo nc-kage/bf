@@ -2,6 +2,7 @@ import { createSlice, EntityState, PayloadAction, createEntityAdapter } from '@r
 
 import { JsonType, MessageEvent, OrderProposition, OrdersType, OrderSymbol } from '@/types';
 import * as socket from '@/slices/socket';
+import { getMessageOrders } from '@/utils/order';
 
 export type OrderStateType = {
   price: number;
@@ -48,17 +49,13 @@ export const { actions, reducer } = createSlice({
         state.waiting = false;
         state.chanId = (payload as JsonType).chanId as number;
       }
-      if (payload[0] !== state.chanId || state.waiting) return;
-      const isInitial = typeof (payload as OrdersType)[1][0] !== 'number';
-      const orders = (isInitial
-        ? payload[1] as [number, number, number][]
-        : [payload[1] as [number, number, number]]).filter((item) => {
-        return Array.isArray(item) && item.length === 3;
-      }).map(([priceAbs, count, amount]) => {
+      const data = getMessageOrders(payload as JsonType);
+      if (!data || data[0] !== state.chanId || state.waiting) return;
+      const orders = data[1].map(([priceAbs, count, amount]) => {
         const price = amount > 0 ? priceAbs : -priceAbs;
         return { price, count, amount };
       });
-      if (isInitial) {
+      if (orders.length > 1) {
         state = ordersAdapter.setAll(state, orders);
       } else {
         orders.forEach(({ price, count, amount }) => {
